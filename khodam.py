@@ -4,6 +4,9 @@ warnings.filterwarnings("ignore", message="Signature .* for <class 'numpy.longdo
 
 import numpy as np
 import pandas as pd
+import random
+from datetime import datetime
+
 
 animals_50 = [
     "Harimau", "Komodo", "Orang Utan", "Anjing Kintamani", "Merak",
@@ -44,9 +47,19 @@ def load_data(filepath):
     return df['Animals'].tolist(), df['Powers'].tolist()
 
 def calculate_khodamcode(input_string):
-    return sum(ord(char) for char in input_string)
+    today = datetime.now()
+    base_code = sum(ord(char) for char in input_string)
+    date_code = today.year + today.month + today.day
+    final_code = base_code + date_code
+    # 25% chance to set khodamcode to "kosong"
+    if random.random() < 0.25:
+        return "kosong"
+    else:
+        return final_code
 
 def select_animal_and_power(animals, powers, code):
+    if code == "kosong":
+        return "kosong", "kosong"
     index = code % 50
     return animals[index], powers[index]
 
