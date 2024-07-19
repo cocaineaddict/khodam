@@ -10,7 +10,6 @@ Gampang banget, cukup ikutin langkah-langkah di bawah ini:
 git clone https://github.com/cocaineaddict/khodam
 
 ````
-Ganti `yourusername` dengan username GitHub lo, ya!
 
 2. **Buka Terminal**:
 Masuk ke folder yang udah lo clone tadi:
